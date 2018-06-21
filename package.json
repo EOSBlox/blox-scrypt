@@ -1,0 +1,13 @@
+{
+  "name": "blox-scrypt",
+  "description": "A web component that exposes the scrypt password-based KDF",
+  "main": "blox-scrypt.js",
+  "dependencies": {
+    "@polymer/polymer": "^3.0.0"
+  },
+  "devDependencies": {
+    "@polymer/iron-demo-helpers": "^3.0.0-pre.19",
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "wct-browser-legacy": "^1.0.0"
+  }
+}
