@@ -1,5 +1,7 @@
 # \<blox-scrypt\>
 
+[![Build Status](https://travis-ci.org/EOSBlox/blox-scrypt.svg?branch=master)](https://travis-ci.org/EOSBlox/blox-scrypt)
+
 A web component that exposes the scrypt password-based KDF
 
 ## Install the Polymer-CLI
@@ -18,4 +20,3 @@ $ polymer serve
 $ polymer test
 ```
 
-Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
