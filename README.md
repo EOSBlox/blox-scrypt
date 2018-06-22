@@ -59,3 +59,18 @@ $ import 'blox-scrypt';
     encoding='hex'></blox-scrypt>
 ```
 
+## Javascript Use
+
+```html
+<blox-scrypt id="bloxScrypt"></blox-scrypt>
+<script>
+    this.$.bloxScrypt.scrypt('secret!!')
+    .then((hash) => {
+        // Do Something
+    })
+    .catch((err) => {
+        // Do Something
+    })
+</script>
+```
+
