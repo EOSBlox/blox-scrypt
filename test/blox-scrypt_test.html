@@ -19,31 +19,44 @@
       </template>
     </test-fixture>
 
-    <test-fixture id="ChangedPropertyTestFixture">
-      <template>
-        <blox-scrypt prop1="new-prop1"></blox-scrypt>
-      </template>
-    </test-fixture>
-
     <script type="module">
       suite('blox-scrypt', () => {
 
-        test('instantiating the element with default properties works', () => {
+        test('scrypt returns the corect KDF for the given password', () => {
           const element = fixture('BasicTestFixture');
-          assert.equal(element.prop1, 'blox-scrypt');
-          const elementShadowRoot = element.shadowRoot;
-          const elementHeader = elementShadowRoot.querySelector('h2');
-          assert.equal(elementHeader.innerHTML, 'Hello blox-scrypt!');
+          element.setAttribute('password', 'secret!!')
+          assert.equal(element.result, '814c0f065c8398d00c842d0648bce060');
         });
 
-        test('setting a property on the element works', () => {
-          // Create a test fixture
-          const element = fixture('ChangedPropertyTestFixture');
-          assert.equal(element.prop1, 'new-prop1');
-          const elementShadowRoot = element.shadowRoot;
-          const elementHeader = elementShadowRoot.querySelector('h2');
-          assert.equal(elementHeader.innerHTML, 'Hello new-prop1!');
+        test('scrypt returns the corect error for a password < 8 charectors', () => {
+          const element = fixture('BasicTestFixture');
+          element.setAttribute('password', '1234567')
+          assert.equal(element.error, 'password length');
         });
+
+        test('scrypt returns the corect error for a password < 8 charectors', () => {
+          const element = fixture('BasicTestFixture');
+          element.setAttribute('password-length', '10')
+          element.setAttribute('password', '123456789')
+          assert.equal(element.error, 'password length');
+        });
+
+        test('scrypt returns the corect result for a password equal to or greater than 10', () => {
+          const element = fixture('BasicTestFixture');
+          element.setAttribute('password-length', '10')
+          element.setAttribute('password', '1234567890')
+          assert.equal(element.result, '2e33f4b5c64a24888024a38ca8bb4b3b');
+        });
+
+        test('scrypt returns the corect result for given password and salt', () => {
+          const element = fixture('BasicTestFixture');
+          element.setAttribute('password-length', '10')
+          element.setAttribute('password', '1234567890SALT')
+          element.setAttribute('salt', '111814c0f065c8398d00c84222d0648bce0601222222')
+          assert.equal(element.result, '1a87434f5af0ac4c3cf16040c1b9e1a4');
+        });
+
+
 
       });
     </script>
