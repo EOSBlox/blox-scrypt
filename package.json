@@ -2,6 +2,10 @@
   "name": "blox-scrypt",
   "description": "A web component that exposes the scrypt password-based KDF",
   "main": "blox-scrypt.js",
+  "version": "1.0.0",
+  "author": "@bkawk",
+  "license": "MIT",
+  "repository": "https://github.com/eosblox/blox-scrypt",
   "dependencies": {
     "@polymer/polymer": "^3.0.0"
   },
