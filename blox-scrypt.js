@@ -75,6 +75,9 @@ class BloxScrypt extends PolymerElement {
   _start(){
     if(this.password && this.password.length >= this.passwordLength){
       this.scrypt(this.password)
+      .catch((err) => {
+        this.error = err;
+      })
     } else {
       this.error = this.errorMessage;
     }
