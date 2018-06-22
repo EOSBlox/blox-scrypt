@@ -26,3 +26,36 @@ $ polymer serve
 $ polymer test
 ```
 
+## Import
+
+```
+$ import 'blox-scrypt';
+```
+
+## Basic Use
+
+```html
+<blox-scrypt
+    password="secret!!"
+    result="{{result}}"
+    error="{{error}}"
+    salt="psv5lvsrnaw3">
+</blox-scrypt>
+```
+
+## Advanced Use
+
+```html
+<blox-scrypt
+    password="secret!!"
+    result="{{result}}"
+    error="{{error}}"
+    salt="psv5lvsrnaw3"
+    password-length=8
+    memoryCost=16384
+    blocksize=8
+    parallelization=1
+    dkLen=16
+    encoding='hex'></blox-scrypt>
+```
+
