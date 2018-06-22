@@ -12,7 +12,7 @@ addons:
     packages:
       - google-chrome-stable
 script:
-  - xvfb-run polymer test
+  - polymer test
 dist: trusty
 cache:
   directories:
